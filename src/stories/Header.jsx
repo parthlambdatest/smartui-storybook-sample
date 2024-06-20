@@ -24,7 +24,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
             />
           </g>
         </svg>
-        <h1>Changes for Github PR 5</h1>
+        <h1>Changes for Github PR 6</h1>
       </div>
       <div>
         {user ? (
