@@ -2,10 +2,10 @@ name: Storybook PR Checks
 on:
   pull_request:
     branches:
-      - master
+      - stage
 
 env:
-  PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+  PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }} 
 
 jobs:
   smartui-gihub-action:
