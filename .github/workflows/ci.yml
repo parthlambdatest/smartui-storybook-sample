@@ -32,9 +32,6 @@ jobs:
         ls -la
         cd ss
         ls -la
-        cd smartui-storybook
-        ls -la
-
 
     - name: Find Last CommitId
       run: |
