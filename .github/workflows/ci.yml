@@ -24,6 +24,7 @@ jobs:
     - name: Checkout stage branch of the private repo
       run: |
         cd smartui-storybook
+        git remote add origin https://github.com/parthlambdatest/smartui-storybook.git
         git checkout stage
         cd ..
 
