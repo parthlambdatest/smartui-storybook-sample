@@ -20,14 +20,10 @@ jobs:
         ls -la
 
     - name: Check out repo smartui-storybook
-      uses: actions/checkout@v1
       with:
         repository: Lambdatest/smartui-storybook
         ref: stage
         path: ss
-      run: |
-        ls -la
-
 
     - name: Checkout stage branch of the private repo
       run: |
