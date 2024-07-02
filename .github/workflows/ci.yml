@@ -13,14 +13,14 @@ jobs:
     name: Execute Storybook build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v2
 
     - name: Listing directory after step 1
       run: | 
         ls -la
 
     - name: Check out repo smartui-storybook
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
       with:
         repository: Lambdatest/smartui-storybook
         ref: stage
