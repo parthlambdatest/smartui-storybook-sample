@@ -24,12 +24,17 @@ jobs:
       with:
         repository: Lambdatest/smartui-storybook
         ref: stage
+        path: ss
 
 
     - name: Checkout stage branch of the private repo
       run: |
+        ls -la
+        cd ss
+        ls -la
         cd smartui-storybook
         ls -la
+
 
     - name: Find Last CommitId
       run: |
