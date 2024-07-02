@@ -10,6 +10,11 @@ env:
 
 jobs:
   smartui-github-action:
+    name: Execute Storybook build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
     - name: Check out repo smartui-storybook
       uses: actions/checkout@v1
       with:
