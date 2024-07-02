@@ -54,4 +54,4 @@ jobs:
         ls -la
         node ./ss/index.js --version
         node ./ss/index.js config create .smartui.json
-        node ./ss/index.js storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json --env stage
+        node ./ss/index.js storybook ./dashlane --config .smartui.json --env stage
