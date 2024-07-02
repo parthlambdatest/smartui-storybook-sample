@@ -13,14 +13,14 @@ jobs:
     name: Execute Storybook build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Listing directory after step 1
       run: | 
         ls -la
 
     - name: Check out repo smartui-storybook
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: Lambdatest/smartui-storybook
         ref: stage
@@ -43,9 +43,17 @@ jobs:
     - name: Step for pull_request event
       run: |
         echo "This is a pull_request event!"
+        git log -n 5 --format="%H %an %s" | while read line; do echo "$line"; done
+        echo "The latest commitId $(git log -n 2 --format='%H' | tail -n 1)"
+        echo "COMMIT_ID=$(git log -n 2 --format='%H' | tail -n 1)" >> $GITHUB_ENV
+      if: github.event_name == 'pull_request'
+
+    - name: Step for Publish/Release event
+      run: |
+        echo "This is a release event!" 
         echo "The latest commitId $(git log -1 --format='%H')"
         echo "COMMIT_ID=$(git log -1 --format='%H')" >> $GITHUB_ENV
-      if: github.event_name == 'pull_request'
+      if: github.event_name == 'release'
 
     - name: Create Github URL
       run: |
