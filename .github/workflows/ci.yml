@@ -3,7 +3,7 @@ name: Storybook PR Checks
 on:
   pull_request:
     branches:
-      - stage
+      - master
 
 env:
   PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }} 
