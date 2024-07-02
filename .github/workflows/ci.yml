@@ -15,19 +15,22 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - name: Listing directory after step 1
+      run: | 
+        ls -la
+
     - name: Check out repo smartui-storybook
       uses: actions/checkout@v1
       with:
         repository: Lambdatest/smartui-storybook
-        path: smartui-storybook
+        path: ss
 
     - name: Checkout stage branch of the private repo
       run: |
-        cd smartui-storybook
-        git remote add origin https://github.com/parthlambdatest/smartui-storybook.git
+        ls -la
+        cd ss/smartui-storybook
         git checkout stage
-        cd ..
-
+        
     - name: Find Last CommitId
       run: |
         API_HOST=https://api.github.com
@@ -49,6 +52,6 @@ jobs:
     - name: Execute storybook build
       run: |
         ls -la
-        node ./smartui-storybook/index.js --version
-        node ./smartui-storybook/index.js config create .smartui.json
-        node ./smartui-storybook/index.js storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json --env stage
+        node ./../smartui-storybook/index.js --version
+        node ./../smartui-storybook/index.js config create .smartui.json
+        node ./../smartui-storybook/index.js storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json --env stage
