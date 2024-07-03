@@ -32,6 +32,9 @@ jobs:
         cd ss
         ls -la
 
+    - name: Checkout PR branch
+      run: git checkout ${{ github.event.pull_request.head.ref }}
+
     - name: Step for push event
       run: |
         echo "This is a push event!"
