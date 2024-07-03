@@ -13,7 +13,10 @@ jobs:
     name: Execute Storybook build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout PR branch
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Fetch all branches and tags
 
     - name: Listing directory after step 1
       run: | 
@@ -25,15 +28,13 @@ jobs:
         repository: Lambdatest/smartui-storybook
         ref: stage
         path: ss
+        fetch-depth: 0  # Fetch all branches and tags
 
-    - name: Checkout stage branch of the private repo
+    - name: Listing directory after checking out smartui-storybook
       run: |
         ls -la
         cd ss
         ls -la
-
-    - name: Checkout PR branch
-      run: git checkout ${{ github.event.pull_request.head.ref }}
 
     - name: Step for push event
       run: |
