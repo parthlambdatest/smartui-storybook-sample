@@ -47,8 +47,8 @@ jobs:
       run: |
         echo "This is a pull_request event!"
         git log -n 5 --format="%H %an %s" | while read line; do echo "$line"; done
-        echo "The latest commitId $(git log -1 --format='%H')"
-        echo "COMMIT_ID=$(git log -1 --format='%H')" >> $GITHUB_ENV
+        echo "The latest commitId $(git log -2 --format='%H')"
+        echo "COMMIT_ID=$(git log -2 --format='%H')" >> $GITHUB_ENV
       if: github.event_name == 'pull_request'
 
     - name: Step for Publish/Release event
