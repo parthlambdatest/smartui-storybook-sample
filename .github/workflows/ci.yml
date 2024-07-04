@@ -81,6 +81,5 @@ jobs:
         ls -la
         node ./ss/index.js --version
         export PROJECT_TOKEN=33416373#62f109fd-0132-4b86-85b4-0a969c1b79d1#ci_testing2
-        node ./ss/index.js config create .smartui.json
         node ./ss/index.js storybook ./storybook-static --config .smartui.json --env stage
  
