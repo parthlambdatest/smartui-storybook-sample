@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - master
-  
-env:
-  PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }} 
 
 jobs:
   smartui-github-action:
@@ -58,13 +55,12 @@ jobs:
         echo "COMMIT_ID=$(git log -1 --format='%H')" >> $GITHUB_ENV
       if: github.event_name == 'release'
 
-    - name: Create Github URL
+    - name: Create Github URL1
       run: |
         API_HOST=https://api.github.com
         echo "The latest commitId is $COMMIT_ID"
         GITHUB_URL=$API_HOST/repos/$GITHUB_REPOSITORY/statuses/$COMMIT_ID
         echo "GITHUB_URL: $GITHUB_URL"
-        echo "GITHUB_URL=$GITHUB_URL" >> $GITHUB_ENV
    
     - name: Install Dependencies
       run: npm install
@@ -76,6 +72,15 @@ jobs:
       run: |
         ls -la
         node ./ss/index.js --version
+        export PROJECT_TOKEN=33416373#2bc23634-a798-4e6a-8e6a-f826cb8b6084#ci_testing
+        node ./ss/index.js config create .smartui.json
+        node ./ss/index.js storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json --env stage
+
+    - name: Execute storybook build
+      run: |
+        ls -la
+        node ./ss/index.js --version
+        export PROJECT_TOKEN=33416373#62f109fd-0132-4b86-85b4-0a969c1b79d1#ci_testing2
         node ./ss/index.js config create .smartui.json
         node ./ss/index.js storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json --env stage
  
