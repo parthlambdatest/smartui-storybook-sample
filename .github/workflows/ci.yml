@@ -4,9 +4,6 @@ on:
     branches:
       - master
 
-env:
-  PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
-
 jobs:
   smartui-gihub-action:
     name: Execute Storybook build
@@ -34,8 +31,16 @@ jobs:
     - name: Create storybook static build
       run: npm run build-storybook
 
-    - name: Execute storybook build
+    - name: Execute storybook build1
       run: |
+        export PROJECT_TOKEN=33416373#4e43a26c-35f1-415c-b09d-f8c9820d13f7#dashlane_more_Ci
         smartui --version
         smartui config create .smartui.json
-        smartui storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json 
+        smartui storybook ./dashlane --config .smartui.json --env stage
+
+    - name: Execute storybook build2
+      run: |
+        export PROJECT_TOKEN=33416373#46d5d595-d3e1-49d2-b37a-d86e9f233a24#storybook_static_ci_test
+        smartui --version
+        smartui config create .smartui.json
+        smartui storybook ./storybook-static --config .smartui.json --env stage
