@@ -28,9 +28,6 @@ jobs:
         npm install
         npm install @lambdatest/smartui-storybook -g
 
-    - name: Create storybook static build
-      run: npm run build-storybook
-
     - name: Execute storybook build1
       run: |
         export PROJECT_TOKEN=export PROJECT_TOKEN=1868537#0506e610-fa89-442a-ad6c-eab24bca96ef#test_nbc
