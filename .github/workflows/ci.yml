@@ -31,4 +31,4 @@ jobs:
     - name: Execute storybook build1
       run: |
         export PROJECT_TOKEN=33416373#8f142f6e-421f-43d6-827e-867bfd43002d#web_1        
-        smartui storybook ./dashlane --config .smartui.json --env stage 
+        smartui storybook ./dashlane --config .smartui.json --env stage  
