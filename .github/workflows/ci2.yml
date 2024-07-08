@@ -1,0 +1,41 @@
+name: Storybook PR Checks 2
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  smartui-gihub-action:
+    name: Execute Storybook build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Find Last CommitId
+      run: |
+        API_HOST=https://api.github.com
+        # Check out the PR branch
+        git checkout $GITHUB_HEAD_REF
+        # Get the commit ID of the last commit
+        COMMIT_ID=$(git rev-parse HEAD)
+        echo "Last commit ID of PR: $COMMIT_ID"
+        GITHUB_URL=$API_HOST/repos/$GITHUB_REPOSITORY/statuses/$COMMIT_ID
+        echo "GITHUB_URL: $GITHUB_URL"
+        echo "GITHUB_URL=$GITHUB_URL" >> $GITHUB_ENV
+   
+    - name: Install Dependencies
+      run: |
+        npm install
+        npm install @lambdatest/smartui-storybook -g
+
+    - name: Execute storybook build1
+      run: |
+        export PROJECT_TOKEN=33416373#90a2e44c-331b-4795-860a-2e7ffe4ef7c8#more_yml_test
+        smartui --version
+        smartui storybook ./dashlane --config .smartui.json --env stage
+
+    - name: Execute storybook build2
+      run: |
+        export PROJECT_TOKEN=33416373#1a2ca7ff-e4a1-4077-94d5-820f843a15c5#more_yml_2
+        smartui --version
+        smartui storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json --env stage
