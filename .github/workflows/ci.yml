@@ -28,8 +28,17 @@ jobs:
         npm install
         npm install @lambdatest/smartui-storybook -g
 
+    - name: Create storybook static build
+      run: npm run build-storybook
+
     - name: Execute storybook build1
       run: |
-        export PROJECT_TOKEN=export PROJECT_TOKEN=1868537#0506e610-fa89-442a-ad6c-eab24bca96ef#test_nbc
+        export PROJECT_TOKEN=33416373#4e43a26c-35f1-415c-b09d-f8c9820d13f7#dashlane_more_Ci
         smartui --version
-        smartui storybook ./d062f430-1ebf-43bd-87f3-2e3d776ee4fc --config .smartui.json 
+        smartui storybook ./dashlane --config .smartui.json --env stage
+
+    - name: Execute storybook build2
+      run: |
+        export PROJECT_TOKEN=33416373#46d5d595-d3e1-49d2-b37a-d86e9f233a24#storybook_static_ci_test
+        smartui --version
+        smartui storybook ./storybook-static --config .smartui.json --env stage
