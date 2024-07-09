@@ -32,4 +32,4 @@ jobs:
       run: |
         export PROJECT_TOKEN=1868537#153b158d-ab41-499c-928f-8b3382e88f1e#exit1_dev_v19
         smartui --version
-        smartui storybook ./dashlane --config .smartui.json
+        smartui storybook ./dashlane --config .smartui.json --env stage
