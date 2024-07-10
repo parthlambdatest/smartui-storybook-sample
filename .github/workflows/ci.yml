@@ -30,6 +30,12 @@ jobs:
 
     - name: Execute storybook build1
       run: |
-        export PROJECT_TOKEN=1868537#153b158d-ab41-499c-928f-8b3382e88f1e#exit1_dev_v19
+        export PROJECT_TOKEN=1868537#577319d5-dc00-4045-9748-d1edc1a1c436#telus_prod_dev
         smartui --version
-        smartui storybook ./dashlane --config .smartui.json --env stage
+        smartui storybook ./dashlane --config .smartui.json
+
+    - name: Execute storybook build2
+      run: |
+        export PROJECT_TOKEN=1868537#b0e62662-6dfb-467c-949c-5ef4f887256f#telus_prod_dev_2
+        smartui --version
+        smartui storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json
