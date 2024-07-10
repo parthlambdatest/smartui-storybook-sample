@@ -38,4 +38,4 @@ jobs:
       run: |
         export PROJECT_TOKEN=1868537#b0e62662-6dfb-467c-949c-5ef4f887256f#telus_prod_dev_2
         smartui --version
-        smartui storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json
+        smartui storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json 
