@@ -38,4 +38,4 @@ jobs:
       run: |
         smartui --version
         smartui config create .smartui.json
-        smartui storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json --env stage
+        smartui storybook ./storybook-static --config .smartui.json --env stage
