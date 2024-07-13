@@ -3,9 +3,6 @@ on:
   pull_request:
     branches:
       - master
- 
-env:
-  PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
 
 jobs:
   smartui-gihub-action:
@@ -31,11 +28,9 @@ jobs:
         npm install
         npm install @lambdatest/smartui-storybook -g
 
-    - name: Create storybook static build
-      run: npm run build-storybook
-
-    - name: Execute storybook build
+    - name: Execute storybook build1
       run: |
+        export PROJECT_TOKEN=1868537#577319d5-dc00-4045-9748-d1edc1a1c436#telus_prod_dev
         smartui --version
-        smartui config create .smartui.json
-        smartui storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json --env stage
+        smartui storybook ./stoybook-static --config .smartui.json
+
