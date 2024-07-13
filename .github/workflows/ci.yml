@@ -32,6 +32,5 @@ jobs:
       run: |
         export PROJECT_TOKEN=1868537#577319d5-dc00-4045-9748-d1edc1a1c436#telus_prod_dev
         smartui --version
-        npm run build-storybook
         smartui storybook ./stoybook-static --config .smartui.json
 
