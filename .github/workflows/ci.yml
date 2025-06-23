@@ -5,7 +5,7 @@ on:
       - master
 
 env:
-  PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+  PROJECT_TOKEN: 1868537#0465f107-cb19-470b-80b3-ccdf3fe9a263#cypress
 
 jobs:
   smartui-gihub-action:
@@ -17,6 +17,7 @@ jobs:
     - name: Find Last CommitId
       run: |
         API_HOST=https://api.github.com
+        
         # Check out the PR branch
         git checkout $GITHUB_HEAD_REF
         # Get the commit ID of the last commit
@@ -36,6 +37,6 @@ jobs:
 
     - name: Execute storybook build
       run: |
-        smartui --version
+        smartui --version 
         smartui config create .smartui.json
-        smartui storybook ./storybook-static --config .smartui.json
+        smartui storybook ./18c18586-e375-4f83-b871-4bfec453c5ef --config .smartui.json
