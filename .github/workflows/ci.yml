@@ -38,4 +38,4 @@ jobs:
       run: |
         smartui --version
         smartui config create .smartui.json
-        smartui storybook ./storybook-static --config .smartui.json
+        smartui storybook ./storybook-static --config .smartui.json 
