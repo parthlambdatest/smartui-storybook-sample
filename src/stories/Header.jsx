@@ -55,3 +55,4 @@ Header.propTypes = {
 Header.defaultProps = {
   user: null,
 };
+
