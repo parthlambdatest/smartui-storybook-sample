@@ -29,7 +29,7 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install
-        npm install @lambdatest/smartui-storybook -g
+        npm install @lambdatest/smartui-storybook@1.1.18 -g
 
     - name: Create storybook static build
       run: npm run build-storybook
